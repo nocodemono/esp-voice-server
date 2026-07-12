@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, send_file
 
 app = Flask(__name__)
 
@@ -27,6 +27,15 @@ def upload():
 
     return "UPLOAD OK"
 
+
+@app.route("/download", methods=["GET"])
+def download():
+
+    return send_file(
+        "received.wav",
+        mimetype="audio/wav",
+        as_attachment=True
+    )
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
