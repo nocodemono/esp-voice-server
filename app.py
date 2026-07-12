@@ -11,9 +11,6 @@ def upload():
 
     wav = request.data
 
-    if len(wav) == 0:
-        return "No data received", 400
-
     with open("received.wav", "wb") as f:
         f.write(wav)
 
