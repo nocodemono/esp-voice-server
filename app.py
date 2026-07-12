@@ -50,7 +50,7 @@ def extract_number(text):
         "twenty":20
     }
 
-    for word,value in numbers.items():
+    for word, value in words.items():
         if word in text:
             return str(value)
 
