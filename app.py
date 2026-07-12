@@ -9,14 +9,15 @@ def home():
 @app.route("/upload", methods=["POST"])
 def upload():
 
-    if "audio" not in request.files:
-        return "No audio received", 400
+    wav = request.data
 
-    audio = request.files["audio"]
+    if len(wav) == 0:
+        return "No data received", 400
 
-    audio.save("received.wav")
+    with open("received.wav", "wb") as f:
+        f.write(wav)
 
-    print("Received:", audio.filename)
+    print("Received", len(wav), "bytes")
 
     return "UPLOAD OK"
 
