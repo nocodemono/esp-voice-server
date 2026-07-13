@@ -93,7 +93,10 @@ def upload():
 
     print("Returning:", result)
 
-    return result
+    return Response(
+    result,
+    mimetype="text/plain"
+    )
 
 
 if __name__ == "__main__":
