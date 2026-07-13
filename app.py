@@ -98,7 +98,7 @@ def upload():
     response.headers["Content-Type"] = "text/plain"
     response.headers["Content-Length"] = str(len(result))
 
-return response
+    return response
 
 
 if __name__ == "__main__":
