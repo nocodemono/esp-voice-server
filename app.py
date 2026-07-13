@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, Response
 from groq import Groq
 import os
 import re
@@ -94,8 +94,8 @@ def upload():
     print("Returning:", result)
 
     return Response(
-    result,
-    mimetype="text/plain"
+        result,
+        mimetype="text/plain"
     )
 
 
