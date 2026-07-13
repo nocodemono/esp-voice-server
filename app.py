@@ -93,10 +93,12 @@ def upload():
 
     print("Returning:", result)
 
-    return Response(
-        result,
-        mimetype="text/plain"
-    )
+    response = Response(result)
+
+    response.headers["Content-Type"] = "text/plain"
+    response.headers["Content-Length"] = str(len(result))
+
+return response
 
 
 if __name__ == "__main__":
